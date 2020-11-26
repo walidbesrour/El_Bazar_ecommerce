@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"
+        app:cnb_backgroundColor="@color/back_rose"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="notification"
+        app:cnb_backgroundColor="@color/back_rose"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile"
+        app:cnb_backgroundColor="@color/back_rose"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+    <item
+        android:id="@+id/reglage"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="réglage"
+        app:cnb_backgroundColor="@color/back_rose"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+</menu>
