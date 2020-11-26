@@ -1,2 +1,1 @@
-include ':app'
-rootProject.name = "El_Bazar_Mobile"
+include ':app', ':autoimageslider'

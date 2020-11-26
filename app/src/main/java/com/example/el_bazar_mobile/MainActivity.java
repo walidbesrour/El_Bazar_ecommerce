@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.el_bazar_mobile.ui.Fragment_Home;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,12 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
-     //  getSupportActionBar().setIcon(R.drawable.ic_baseline_menu_24);
-      // getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
+    context = MainActivity.this;
 
-        context = MainActivity.this;
-
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new Fragment_Home()).commit();
 
 
         nav_bar();
