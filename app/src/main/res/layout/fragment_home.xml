@@ -79,13 +79,68 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager1"
             android:layout_width="match_parent"
+            android:layout_height="230dp"
             android:layout_below="@+id/Text2"
             android:background="@color/My_background"
-            android:layout_height="375dp"
             android:clipToPadding="false"
             android:layout_marginTop="10dp"
             android:foregroundGravity="center"
             android:overScrollMode="never" />
+
+        <ImageView
+            android:id="@+id/icon_img"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/icon_img"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/viewPager1"
+            />
+        <TextView
+            android:id="@+id/Text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon_img"
+            android:background="@color/white"
+            android:text=" Produit Promotion"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:paddingLeft="5dp" />
+
+        <GridView
+            android:id="@+id/myGrid"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_below="@+id/Text3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:numColumns="2"
+            android:verticalSpacing="1dp"
+            android:horizontalSpacing="1dp"
+            android:scrollbars="horizontal"
+            android:background="@color/My_background"/>
+
+        <TextView
+            android:id="@+id/Text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myGrid"
+            android:background="@color/white"
+            android:text=" Nos Partenaire"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:paddingLeft="5dp" />
 
     </RelativeLayout>
 

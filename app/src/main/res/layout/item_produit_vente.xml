@@ -8,14 +8,14 @@
     android:gravity="center_vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="230dp"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
         android:layout_margin="8dp"
         android:background="@color/My_background"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="5dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -25,99 +25,92 @@
                 android:layout_height="100dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/splashscreen" />
-
             <TextView
                 android:id="@+id/nom_p"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/image"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="5dp"
                 android:text="Nom de produit"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="8dp"
+                android:gravity="center"
                 android:textStyle="normal"
                 android:typeface="serif" />
-
             <TextView
                 android:id="@+id/nom_marque"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nom_p"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="nom_marque"
                 android:textColor="#8A98BA"
-                android:textSize="14dp"
+                android:textSize="7dp"
+                android:gravity="center"
                 android:textStyle="normal" />
-
             <RelativeLayout
                 android:id="@+id/p"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nom_marque"
-                android:layout_marginTop="30dp"
-                android:layout_toLeftOf="@+id/btn_panier">
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+               >
 
                 <TextView
                     android:id="@+id/nom_prix"
-                    android:layout_width="80dp"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="1000.000"
                     android:textColor="@color/black"
-                    android:textSize="13dp"
+                    android:textSize="8dp"
                     android:textStyle="normal"
                     android:typeface="serif" />
 
                 <View
-                    android:layout_width="70dp"
+                    android:layout_width="50dp"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
                     android:background="@color/colorRed" />
 
             </RelativeLayout>
-
             <TextView
                 android:id="@+id/nom_prix1"
-                android:layout_width="80dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/nom_marque"
-                android:layout_marginTop="30dp"
-                android:layout_toLeftOf="@+id/p"
                 android:gravity="center"
+                android:layout_below="@+id/p"
                 android:text="1000.000"
                 android:textColor="@color/black"
-                android:textSize="13dp"
+                android:layout_marginTop="5dp"
+                android:textSize="10dp"
                 android:textStyle="normal"
+                android:layout_centerHorizontal="true"
                 android:typeface="serif" />
-
             <Button
                 android:id="@+id/btn_achat"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="28dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginRight="5dp"
                 android:background="@drawable/btn_red"
                 android:text="Acheter"
                 android:textColor="@color/white"
+                android:textSize="10dp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btn_panier"
-                android:layout_width="80dp"
-                android:layout_height="45dp"
+                android:layout_width="50dp"
+                android:layout_height="28dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toLeftOf="@+id/btn_achat"
                 android:background="@drawable/btn_panier"
                 app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
-
-
         </RelativeLayout>
 
 
