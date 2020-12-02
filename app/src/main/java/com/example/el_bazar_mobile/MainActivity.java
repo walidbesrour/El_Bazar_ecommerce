@@ -6,18 +6,28 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
+import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_four;
+import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_one;
+import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_three;
+import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_tow;
 import com.example.el_bazar_mobile.ui.Fragment_Home;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.tabs.TabLayout;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
     private ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
+
+
 
 
     Context context ;
@@ -29,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
+
+
+
+
+
+
 
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);

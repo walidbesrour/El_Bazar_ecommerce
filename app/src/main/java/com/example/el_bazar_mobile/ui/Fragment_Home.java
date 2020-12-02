@@ -15,13 +15,18 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.Adapter_Nouveau_Produit;
 import com.example.el_bazar_mobile.adapter.Adapter_Produit_Promotion;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
 import com.example.el_bazar_mobile.adapter.SliderAdapterExample;
+import com.example.el_bazar_mobile.adapter.Slider_Adapter_Promo;
 import com.example.el_bazar_mobile.model.Nouveau_Produit;
 import com.example.el_bazar_mobile.model.Produits;
 import com.example.el_bazar_mobile.model.SliderItem;
@@ -47,7 +52,9 @@ public class Fragment_Home  extends Fragment {
     private int delay2 = 3000;
     private Handler handler = new Handler();
     ViewPager viewPager ,viewPager1;
-    GridView gridView ;
+    GridView gridView  ;
+    ViewPager2 viewPager2 ;
+    private Handler sliderHandler = new Handler();
 
     @Nullable
     @Override
@@ -57,11 +64,14 @@ public class Fragment_Home  extends Fragment {
         viewPager = v.findViewById(R.id.viewPager);
         viewPager1 = v.findViewById(R.id.viewPager1);
         gridView = v.findViewById(R.id.myGrid);
+        viewPager2 = v.findViewById(R.id.ViewPageImage);
+
         
         pub(sliderView);
         promo(viewPager);
         promo1(viewPager1);
         met_gridView(gridView);
+        pub2(viewPager2);
         return v ;
     }
     private void met_gridView(GridView gridView ){
@@ -320,4 +330,48 @@ public class Fragment_Home  extends Fragment {
         handler.removeCallbacks(slideRunnable_promo);
         handler.removeCallbacks(slideRunnable_promo2);
     }
+
+    private void pub2(ViewPager2 viewPager2){
+        List<SliderItem> slider = new ArrayList<>();
+
+        //dummy data
+        slider.add(new SliderItem("https://www.marketing-etudiant.fr/wp-content/uploads/2016/01/taste-the-feeling.jpg"));
+        slider.add(new SliderItem("https://i.pinimg.com/originals/4d/68/bd/4d68bd92f0293d1e5b48a09e8bc0efea.jpg"));
+        slider.add(new SliderItem("https://www.journaldugeek.com/content/uploads/2016/03/Screenshot-40.png"));
+        slider.add(new SliderItem("https://mediacomeulalie.weebly.com/uploads/3/8/8/4/38842785/2885011_orig.jpg"));
+        slider.add(new SliderItem("https://www.sportbuzzbusiness.fr/wp-content/uploads/2016/05/pub-Volvo-Zlatan-Ibrahimovic-euro-2016-V90.jpg"));
+        viewPager2.setAdapter(new Slider_Adapter_Promo(slider,viewPager2));
+
+        viewPager2.setClipToPadding(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(3);
+        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                float r =1 - Math.abs(position);
+                page.setScaleY(0.85f + r * 0.15f);
+            }
+        });
+
+        viewPager2.setPageTransformer(compositePageTransformer);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                sliderHandler.removeCallbacks(slideRunnable);
+                sliderHandler.postDelayed(slideRunnable,3000);
+            }
+        });
+
+    }
+    private Runnable slideRunnable = new Runnable() {
+        @Override
+        public void run() {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem()+ 1);
+        }
+    };
 }
