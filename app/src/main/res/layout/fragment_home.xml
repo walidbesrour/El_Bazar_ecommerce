@@ -1,229 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="@color/My_background">
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/aa"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/imageSlider"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginTop="10dp"
-            app:sliderAnimationDuration="600"
-            app:sliderAutoCycleDirection="back_and_forth"
-            app:sliderAutoCycleEnabled="true"
-            app:sliderIndicatorAnimationDuration="600"
-            app:sliderIndicatorGravity="center_horizontal|bottom"
-            app:sliderIndicatorMargin="15dp"
-            app:sliderIndicatorOrientation="horizontal"
-            app:sliderIndicatorPadding="3dp"
-            app:sliderIndicatorRadius="2dp"
-            app:sliderIndicatorSelectedColor="#5A5A5A"
-            app:sliderIndicatorUnselectedColor="#FFF"
-            app:sliderScrollTimeInSec="1"
-            app:sliderStartAutoCycle="true" />
+        android:layout_height="wrap_content" >
 
-        <ImageView
-            android:id="@+id/logo"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageSlider"
-            android:src="@drawable/logo"/>
-        <TextView
-            android:id="@+id/Text1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:background="@color/white"
-            android:text=" Nouveau Produit"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:padding="5dp"
-            android:paddingLeft="5dp"
+            app:tabBackground="@color/white"
+            app:tabIndicatorColor="@color/colorRed"
+          />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            />
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/Text1"
-            android:background="@color/My_background"
-            android:layout_height="250dp"
-            android:clipToPadding="false"
-            android:layout_marginTop="10dp"
-            android:foregroundGravity="center"
-            android:overScrollMode="never" />
 
-        <TextView
-            android:id="@+id/Text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/viewPager"
-            android:background="@color/white"
-            android:text=" Produit Promotion"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:padding="5dp"
-            android:paddingLeft="5dp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/aa"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
 
-            />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager1"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_below="@+id/Text2"
-            android:background="@color/My_background"
-            android:clipToPadding="false"
-            android:layout_marginTop="10dp"
-            android:foregroundGravity="center"
-            android:overScrollMode="never" />
-
-        <ImageView
-            android:id="@+id/icon_img"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/icon_img"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/viewPager1"
-            />
-        <TextView
-            android:id="@+id/Text3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/icon_img"
-            android:background="@color/white"
-            android:text=" Produit Promotion"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:padding="5dp"
-            android:paddingLeft="5dp" />
-
-        <GridView
-            android:id="@+id/myGrid"
-            android:layout_width="match_parent"
-            android:layout_height="700dp"
-            android:layout_below="@+id/Text3"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_gravity="center"
-            android:numColumns="2"
-            android:verticalSpacing="1dp"
-            android:horizontalSpacing="1dp"
-            android:scrollbars="horizontal"
-            android:background="@color/My_background"/>
-
-        <TextView
-            android:id="@+id/Text4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/myGrid"
-            android:background="@color/white"
-            android:text=" Nos Partenaire"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:padding="5dp"
-            android:paddingLeft="5dp" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/ViewPageImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/Text4"
-            android:background="@color/My_background"
-            android:layout_marginTop="10dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorRed"
-            android:layout_below="@+id/ViewPageImage"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="vertical">
+    </androidx.viewpager.widget.ViewPager>
 
 
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name_profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/email"
-                    android:text="contact@elbazarshop.com"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="-10dp"
-                    android:gravity="center"
-                    android:paddingLeft="35dp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/call"
-                    android:text="36301302/ 29938061"
-                    android:textSize="15dp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:paddingLeft="35dp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/location_on_24"
-                    android:text="Cité Al Wifak La Marsa"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
-                    android:paddingLeft="35dp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
 
 
-    </RelativeLayout>
-
-
-</ScrollView>
+</RelativeLayout>

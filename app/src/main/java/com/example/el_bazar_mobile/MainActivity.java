@@ -1,26 +1,20 @@
 package com.example.el_bazar_mobile;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
+import android.view.View;
+import android.widget.Toast;
 
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_four;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_one;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_three;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_tow;
 import com.example.el_bazar_mobile.ui.Fragment_Home;
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.tabs.TabLayout;
+
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,18 +30,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        context = MainActivity.this;
+
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
 
 
 
-
-
-
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
-    context = MainActivity.this;
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"eeeeeeeeee",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, Sous_Categorie_List.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new Fragment_Home()).commit();

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout"
-    tools:context=".MainActivity">
+    android:background="@color/My_background"
+    tools:context=".Sous_Categorie_List">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ab"
@@ -19,32 +19,23 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/chipNavigation"
         android:layout_below="@+id/ab"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="0dp"
+        android:orientation="horizontal">
 
-        tools:ignore="UnknownId" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            />
 
-
-
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/chipNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:cnb_menuResource="@menu/nav_item" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"/>
+    </LinearLayout>
 
 </RelativeLayout>
