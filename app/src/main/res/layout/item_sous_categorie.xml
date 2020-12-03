@@ -8,18 +8,18 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/text_categorie"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="walid besrour"
             android:textSize="18dp"
-            android:padding="5dp"
+            android:padding="12dp"
             android:typeface="serif"
             android:textColor="@color/black"
             android:gravity="center"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#CACACA"/>
+            android:background="#D3D3D3"/>
 
 
     </LinearLayout>
