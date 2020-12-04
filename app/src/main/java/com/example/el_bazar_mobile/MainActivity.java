@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.example.el_bazar_mobile.ui.Fragment_Home;
 
+import com.example.el_bazar_mobile.ui.Fragment_Profile;
+import com.example.el_bazar_mobile.ui.Fragment_notification;
+import com.example.el_bazar_mobile.ui.Fragment_reglage;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -82,26 +85,27 @@ public class MainActivity extends AppCompatActivity {
         //   getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
         chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(int i) {
                 switch (i) {
                     case R.id.home:
-                        //     fragment = new HomeFragment();
+                        fragment = new Fragment_Home();
                         break;
                     case R.id.cart:
-//                        fragment = new CartFragment();
+                        fragment = new Fragment_notification();
                         break;
                     case R.id.profile:
-//                        fragment = new ProfileFragment();
+                       fragment = new Fragment_Profile();
                         break;
                     case R.id.reglage:
-//                        fragment = new ProfileFragment();
+                        fragment = new Fragment_reglage();
                         break;
 
                 }
 
                 if (fragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 }
             }
         });

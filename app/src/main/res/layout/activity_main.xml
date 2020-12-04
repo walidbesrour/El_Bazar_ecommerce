@@ -33,7 +33,6 @@
         android:layout_above="@+id/chipNavigation"
         android:layout_below="@+id/ab"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
         android:layout_marginEnd="0dp"
 
         tools:ignore="UnknownId" />

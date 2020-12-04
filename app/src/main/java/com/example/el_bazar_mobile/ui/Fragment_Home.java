@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.el_bazar_mobile.R;
 
+import com.example.el_bazar_mobile.adapter.ViewPagerAdapter;
 import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_four;
 import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_one;
 import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_three;
@@ -79,35 +80,5 @@ public class Fragment_Home  extends Fragment {
 
         return v ;
     }
-    private class ViewPagerAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> fragments = new ArrayList<>();
-        private List<String> fragmentTitle = new ArrayList<>();
-
-        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            fragments.add(fragment);
-            fragmentTitle.add(title);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return fragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragmentTitle.get(position);
-        }
-    }
 }
