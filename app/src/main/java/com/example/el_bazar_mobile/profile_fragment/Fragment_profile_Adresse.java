@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,14 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.el_bazar_mobile.R;
+import com.example.el_bazar_mobile.adapter.Adapter_Adresse;
+import com.example.el_bazar_mobile.adapter.Adapter_RecylerView_Categorie;
 import com.example.el_bazar_mobile.databinding.FragmentProfilCommandeBinding;
 import com.example.el_bazar_mobile.databinding.FragmentProfileBinding;
 import com.example.el_bazar_mobile.databinding.FragmentProfilePannierBinding;
 import com.example.el_bazar_mobile.databinding.FragmentProfilePannierBindingImpl;
+import com.example.el_bazar_mobile.model.Adresse;
+import com.example.el_bazar_mobile.model.Categorie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +37,9 @@ import java.util.ArrayList;
 
 public class Fragment_profile_Adresse extends Fragment {
     String id_ville ;
+    ArrayList<Adresse> adresses ;
+    String add_gouvernorat , add_ville , add_localite ;
+    int position ;
     private FragmentProfilePannierBinding binding ;
 
     public Fragment_profile_Adresse() {
@@ -51,11 +60,30 @@ public class Fragment_profile_Adresse extends Fragment {
         });
 
 
+///////////////////////////////////////////////////////////////////////////////
+           createExampleList() ;
+        Adapter_Adresse adapter_adresse = new Adapter_Adresse(adresses);
+        binding.recyAdress.setLayoutManager(new GridLayoutManager(getContext(),1));
+        binding.recyAdress.setAdapter(adapter_adresse);
 
+
+//////////////////////////////////////////////////////////////////////////////
 
         return binding.getRoot() ;
     }
 
+
+
+    public void createExampleList() {
+        adresses = new ArrayList<>();
+        adresses.add(new Adresse("Ariana","gazela","Ariana"));
+        adresses.add(new Adresse("Beja","nefza","touz"));
+        adresses.add(new Adresse("Ariana","tadhamen","Ariana"));
+        adresses.add(new Adresse("Ariana","nebel","Electronique"));
+        adresses.add(new Adresse("mednin","mido","djerba"));
+        adresses.add(new Adresse("sousa","saousa","sos"));
+        adresses.add(new Adresse("mestir","Electronique","Electronique"));
+    }
     public  void ShoxDialogBox ()
     {
         Dialog dialog = new Dialog(getContext());
@@ -95,6 +123,10 @@ public class Fragment_profile_Adresse extends Fragment {
             spinner_gouvernorat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    add_gouvernorat = spinner_gouvernorat.getItemAtPosition(position).toString();
+
+
+             //     Toast.makeText(parent.getContext(), z, Toast.LENGTH_SHORT).show();
 
                     try {
 
@@ -233,11 +265,12 @@ public class Fragment_profile_Adresse extends Fragment {
                                         if (label_ville2.equals(Ville_sp))
                                         {
                                             id_ville = ID ;
+                                            add_ville = label_ville2 ;
                                         }
 
                                     }
 
-                                    Toast.makeText(parent.getContext(), id_ville, Toast.LENGTH_SHORT).show();
+                              //    Toast.makeText(parent.getContext(), add_ville, Toast.LENGTH_SHORT).show();
 
 
 
@@ -258,6 +291,7 @@ public class Fragment_profile_Adresse extends Fragment {
 
                                         if(id_ville.equals(labell_IDVille)){
                                             list_Localites.add(label_localites);
+                                            add_localite = label_localites ;
                                         }
 
 
@@ -270,6 +304,8 @@ public class Fragment_profile_Adresse extends Fragment {
 
 
                                 }catch (Exception exe){exe.printStackTrace(); }
+
+
                             }
 
                             @Override
@@ -296,6 +332,18 @@ public class Fragment_profile_Adresse extends Fragment {
             e.printStackTrace();
         }
 
+        Button ajouter = dialog.findViewById(R.id.ajouter);
+        ajouter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                adresses.add(new Adresse(add_gouvernorat,add_ville,add_localite));
+                Adapter_Adresse adapter_adresse = new Adapter_Adresse(adresses);
+                binding.recyAdress.setAdapter(adapter_adresse);
+
+                dialog.dismiss();
+            }
+        });
 
 
 
