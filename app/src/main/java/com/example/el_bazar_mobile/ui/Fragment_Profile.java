@@ -1,6 +1,5 @@
 package com.example.el_bazar_mobile.ui;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,24 +7,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.ViewPagerAdapter;
 import com.example.el_bazar_mobile.databinding.FragmentProfileBinding;
 import com.example.el_bazar_mobile.profile_fragment.Fragment_Detail;
 import com.example.el_bazar_mobile.profile_fragment.Fragment_Profil_commande;
-import com.example.el_bazar_mobile.profile_fragment.Fragment_profile_Pannier;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_four;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_one;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_three;
-import com.example.el_bazar_mobile.sous_categorie.Fragment_sous_tow;
-import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.el_bazar_mobile.profile_fragment.Fragment_profile_Adresse;
 
 
 public class Fragment_Profile  extends Fragment {
@@ -33,7 +20,7 @@ public class Fragment_Profile  extends Fragment {
 
     private Fragment_Detail fragment_detail;
     private Fragment_Profil_commande fragment_profil_commande;
-    private Fragment_profile_Pannier fragment_profile_pannier;
+    private Fragment_profile_Adresse fragment_profile_adresse;
 
 
    private FragmentProfileBinding binding ;
@@ -44,7 +31,7 @@ public class Fragment_Profile  extends Fragment {
 
         fragment_detail = new Fragment_Detail();
         fragment_profil_commande = new Fragment_Profil_commande();
-        fragment_profile_pannier = new Fragment_profile_Pannier();
+        fragment_profile_adresse = new Fragment_profile_Adresse();
 
 
         binding.tabLayout.setupWithViewPager(binding.viewPager);
@@ -52,7 +39,7 @@ public class Fragment_Profile  extends Fragment {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), 0);
         viewPagerAdapter.addFragment(fragment_detail, "Detail");
         viewPagerAdapter.addFragment(fragment_profil_commande, "Mes Commande");
-        viewPagerAdapter.addFragment(fragment_profile_pannier, "Mon Panier");
+        viewPagerAdapter.addFragment(fragment_profile_adresse, "Mes Adresse");
 
         binding.viewPager.setAdapter(viewPagerAdapter);
 

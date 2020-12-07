@@ -14,5 +14,7 @@
     <color name="color2">#EFEFEF</color>
     <color name="color3">#EFEFEF</color>
     <color name="color4">#EFEFEF</color>
+    <color name="colorBlueDark">#FF3700B3</color>
+    <color name="colorBlue">#00BCD4</color>
 
 </resources>

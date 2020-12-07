@@ -7,9 +7,12 @@ public class Produits {
     private String marque_produit;
     private String prix_produit;
     private String prix_bare_produit;
+    private String Quantité ;
 
     public Produits() {
     }
+
+
 
     public Produits(String image_produit, String marque_produit, String nom_produit, String prix_produit, String prix_bare_produit) {
         this.image_produit = image_produit;
@@ -57,5 +60,13 @@ public class Produits {
 
     public void setPrix_bare_produit(String prix_bare_produit) {
         this.prix_bare_produit = prix_bare_produit;
+    }
+
+    public String getQuantité() {
+        return Quantité;
+    }
+
+    public void setQuantité(String quantité) {
+        Quantité = quantité;
     }
 }

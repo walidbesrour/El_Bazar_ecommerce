@@ -7,4 +7,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="numbers">
+        <item>Espéce</item>
+        <item>Cheque</item>
+        <item>Carte bancaire</item>
+
+    </string-array>
+
 </resources>
