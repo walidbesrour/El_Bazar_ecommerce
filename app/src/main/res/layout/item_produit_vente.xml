@@ -11,7 +11,7 @@
         android:layout_width="160dp"
         android:layout_height="220dp"
         android:layout_margin="8dp"
-        android:background="@color/My_background"
+        android:background="@color/white"
         app:cardCornerRadius="5dp">
 
         <RelativeLayout

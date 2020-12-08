@@ -58,54 +58,36 @@ public class Sous_Categorie_List extends AppCompatActivity {
                // String post = categories.get(position).getCategorie_principale() ;
                 String aa = String.valueOf(position);
                 Log.d("zzzzzzzz","   "+ position);
-                Adapter_RecylerView_Sou_Categorie aaa = new Adapter_RecylerView_Sou_Categorie(list_remplir0());
-                binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                binding.list2.setAdapter(aaa);
+
 
                  if(position == 0){
 
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir0());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir0());
                 }else if (position == 1){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir1());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir1());
                 }
                 else if (position == 2){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir2());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir2());
                 }
                 else if (position == 3){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir3());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir3());
                 }
                 else if (position == 4){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir4());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir4());
                 }
                 else if (position == 5){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir5());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir5());
                 }
                 else if (position == 6){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir6());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir6());
                 }
                 else if (position == 7){
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir7());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+              ;
+                     remplir_list(list_remplir7());
                 }else{
-                    Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list_remplir0());
-                    binding.list2.setLayoutManager(new GridLayoutManager(context,1));
-                    binding.list2.setAdapter(adapter_recylerView_categorie);
+                     remplir_list(list_remplir0());
                 }
+
 
 
             }
@@ -248,4 +230,18 @@ public class Sous_Categorie_List extends AppCompatActivity {
         return categories ;
     }
 
+
+    public void remplir_list( ArrayList<Categorie> list ){
+        Adapter_RecylerView_Sou_Categorie adapter_recylerView_categorie = new Adapter_RecylerView_Sou_Categorie(list);
+        binding.list2.setLayoutManager(new GridLayoutManager(context,1));
+        binding.list2.setAdapter(adapter_recylerView_categorie);
+        adapter_recylerView_categorie.setonItemClickLister_sous(new Adapter_RecylerView_Sou_Categorie.onItemClickLister() {
+            @Override
+            public void ItemClick_sous(int position) {
+                Intent intent = new Intent(context, Produit_Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
 }

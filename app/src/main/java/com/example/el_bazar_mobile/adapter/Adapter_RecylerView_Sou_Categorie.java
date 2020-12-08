@@ -17,7 +17,17 @@ import java.util.ArrayList;
 
 public class Adapter_RecylerView_Sou_Categorie extends RecyclerView.Adapter<Adapter_RecylerView_Sou_Categorie.List_Categorie> {
 
+
     private ArrayList<Categorie> categories = new ArrayList<>();
+
+
+    public  onItemClickLister mlistener ;
+    // interface to click
+    public interface onItemClickLister{ void ItemClick_sous(int position) ; }
+
+    public void setonItemClickLister_sous( onItemClickLister lister){
+        mlistener = lister;
+    }
 
     public Adapter_RecylerView_Sou_Categorie(ArrayList<Categorie> categories) {
         this.categories = categories;
@@ -28,7 +38,7 @@ public class Adapter_RecylerView_Sou_Categorie extends RecyclerView.Adapter<Adap
     public Adapter_RecylerView_Sou_Categorie.List_Categorie onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemSousCategorieBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_sous_categorie,parent,false);
-        return  new List_Categorie(binding);
+        return  new List_Categorie(binding, mlistener);
     }
 
     @Override
@@ -43,9 +53,23 @@ public class Adapter_RecylerView_Sou_Categorie extends RecyclerView.Adapter<Adap
 
     public class List_Categorie extends RecyclerView.ViewHolder {
         private ItemSousCategorieBinding binding ;
-        public List_Categorie(@NonNull ItemSousCategorieBinding binding) {
+        public List_Categorie(@NonNull ItemSousCategorieBinding binding , onItemClickLister listener) {
             super(binding.getRoot());
             this.binding = binding ;
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener!= null)
+                    {
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION)
+                        {
+                            listener.ItemClick_sous(position);
+                        }
+
+                    }
+                }
+            });
         }
     }
 }
