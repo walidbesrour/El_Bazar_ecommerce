@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image"
                     android:gravity="center"
-                    android:text="Gore : "
+                    android:text="Civilité : "
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold"
@@ -93,6 +93,43 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
                 <TextView
+                    android:id="@+id/Date1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image"
+                    android:gravity="center"
+                    android:text="date de naissance: "
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/Date2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nom_p"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="10/04/1988"
+                    android:textColor="#8A98BA"
+                    android:textSize="16dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#CCCACA"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
                     android:id="@+id/Telephone1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -130,6 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -143,12 +181,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:background="@color/My_background"
                     android:paddingLeft="20dp"
                     android:text="Account : "
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold"
                     android:typeface="serif" />
 
@@ -157,6 +195,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:textSize="12dp"
                     android:text="Changer le mot de passe "
                     android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
 
@@ -174,6 +213,7 @@
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="15dp"
                 android:layout_marginLeft="10dp"
+                app:cardElevation="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="20dp">
 
@@ -187,12 +227,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/image"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                         android:background="@color/My_background"
                         android:paddingLeft="20dp"
                         android:text="Autre : "
                         android:textColor="@color/black"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:textStyle="bold"
                         android:typeface="serif" />
 
@@ -201,6 +241,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
+                        android:textSize="12dp"
                         android:text="Modifier votre compte "
                         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24" />
 
@@ -209,6 +250,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:textColor="@color/purple_700"
+                        android:textSize="12dp"
                         android:text="Connection "
                         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24" />
 

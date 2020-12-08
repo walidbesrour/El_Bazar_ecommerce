@@ -37,6 +37,7 @@ public class Adapter_Adresse extends RecyclerView.Adapter<Adapter_Adresse.List_C
         holder.binding.nomMarque1.setText(adresses.get(position).getGouvernorat_user());
         holder.binding.nomMarque2.setText(adresses.get(position).getVille_user());
         holder.binding.nomMarque3.setText(adresses.get(position).getLocalite_user());
+        holder.binding.nomMarque4.setText(adresses.get(position).getAvenu_user());
     }
 
     @Override

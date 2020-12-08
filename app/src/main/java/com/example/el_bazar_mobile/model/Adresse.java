@@ -5,6 +5,15 @@ public class Adresse {
      private String Gouvernorat_user ;
     private String ville_user ;
     private String localite_user ;
+    private String Avenu_user ;
+
+
+    public Adresse(String gouvernorat_user, String ville_user, String localite_user, String avenu_user) {
+        Gouvernorat_user = gouvernorat_user;
+        this.ville_user = ville_user;
+        this.localite_user = localite_user;
+        Avenu_user = avenu_user;
+    }
 
     public Adresse(String gouvernorat_user, String ville_user, String localite_user) {
         Gouvernorat_user = gouvernorat_user;
@@ -34,5 +43,13 @@ public class Adresse {
 
     public void setLocalite_user(String localite_user) {
         this.localite_user = localite_user;
+    }
+
+    public String getAvenu_user() {
+        return Avenu_user;
+    }
+
+    public void setAvenu_user(String avenu_user) {
+        Avenu_user = avenu_user;
     }
 }

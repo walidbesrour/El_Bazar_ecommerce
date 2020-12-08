@@ -38,8 +38,9 @@ public class Fragment_Profile  extends Fragment {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), 0);
         viewPagerAdapter.addFragment(fragment_detail, "Detail");
-        viewPagerAdapter.addFragment(fragment_profil_commande, "Mes Commande");
         viewPagerAdapter.addFragment(fragment_profile_adresse, "Mes Adresse");
+        viewPagerAdapter.addFragment(fragment_profil_commande, "Mes Commande");
+
 
         binding.viewPager.setAdapter(viewPagerAdapter);
 

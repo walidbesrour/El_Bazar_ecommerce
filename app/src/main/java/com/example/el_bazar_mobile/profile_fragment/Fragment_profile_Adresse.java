@@ -76,13 +76,13 @@ public class Fragment_profile_Adresse extends Fragment {
 
     public void createExampleList() {
         adresses = new ArrayList<>();
-        adresses.add(new Adresse("Ariana","gazela","Ariana"));
-        adresses.add(new Adresse("Beja","nefza","touz"));
-        adresses.add(new Adresse("Ariana","tadhamen","Ariana"));
-        adresses.add(new Adresse("Ariana","nebel","Electronique"));
-        adresses.add(new Adresse("mednin","mido","djerba"));
-        adresses.add(new Adresse("sousa","saousa","sos"));
-        adresses.add(new Adresse("mestir","Electronique","Electronique"));
+        adresses.add(new Adresse("Ariana","gazela","Ariana","tunis rue 12"));
+        adresses.add(new Adresse("Beja","nefza","touz","mounastie rue 120"));
+        adresses.add(new Adresse("Ariana","tadhamen","Ariana","nasr rue 12"));
+        adresses.add(new Adresse("Ariana","nebel","Electronique","sousa rue 12"));
+        adresses.add(new Adresse("mednin","mido","djerba","beb jdid rue 12"));
+        adresses.add(new Adresse("sousa","saousa","sos","menzah rue 12"));
+        adresses.add(new Adresse("mestir","Electronique","djerba","djerba rue 12"));
     }
     public  void ShoxDialogBox ()
     {

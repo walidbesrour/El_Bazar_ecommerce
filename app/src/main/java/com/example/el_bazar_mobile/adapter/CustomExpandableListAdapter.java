@@ -119,7 +119,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
 
         TextView quantite = view.findViewById(R.id.p1);
-        quantite.setText(produits.getQuantité());
+        quantite.setText(String.valueOf(produits.getQuantité()));
 
 
 

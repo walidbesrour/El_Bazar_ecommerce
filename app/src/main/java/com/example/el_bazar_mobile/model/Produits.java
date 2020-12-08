@@ -7,13 +7,19 @@ public class Produits {
     private String marque_produit;
     private String prix_produit;
     private String prix_bare_produit;
-    private String Quantité ;
+    private int Quantité ;
 
     public Produits() {
     }
 
 
-
+    public Produits(String image_produit, String nom_produit, String marque_produit, String prix_produit, int quantité) {
+        this.image_produit = image_produit;
+        this.nom_produit = nom_produit;
+        this.marque_produit = marque_produit;
+        this.prix_produit = prix_produit;
+        Quantité = quantité;
+    }
     public Produits(String image_produit, String marque_produit, String nom_produit, String prix_produit, String prix_bare_produit) {
         this.image_produit = image_produit;
         this.marque_produit = marque_produit;
@@ -62,11 +68,12 @@ public class Produits {
         this.prix_bare_produit = prix_bare_produit;
     }
 
-    public String getQuantité() {
+    public int getQuantité() {
         return Quantité;
     }
 
-    public void setQuantité(String quantité) {
+
+    public void setQuantité(int quantité) {
         Quantité = quantité;
     }
 }
