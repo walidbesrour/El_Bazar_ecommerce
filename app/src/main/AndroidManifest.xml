@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.El_Bazar_Mobile">
-        <activity android:name=".Produit_Activity"></activity>
+        <activity android:name=".CommandeActivity"></activity>
+        <activity android:name=".Produit_Activity" />
         <activity android:name=".Sous_Categorie_List" />
         <activity android:name=".SplashScreen">
             <intent-filter>
