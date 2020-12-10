@@ -12,6 +12,8 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
@@ -28,7 +30,7 @@ import java.util.List;
 
 public class Fragment_sous_four extends Fragment {
 
-    GridView gridView , gridView2 ;
+    RecyclerView gridView , gridView2 ;
 
     SliderView sliderView;
     private SliderAdapterExample adapter;
@@ -107,37 +109,28 @@ public class Fragment_sous_four extends Fragment {
         }
         adapter.renewItems(sliderItemList);
     }
-    private void met_gridView(GridView gridView ){
-        ArrayList<Produits> list1 = new ArrayList <>();
-        list1.add(new Produits("https://infomaxparis.com/3133-medium_default/pc-gamer-configuration-fixes-pc-gamer-aeroman.jpg","Robe bleu"
+    private void met_gridView(RecyclerView gridView ){
+        ArrayList<Produits> list11 = new ArrayList <>();
+        list11.add(new Produits("https://infomaxparis.com/3133-medium_default/pc-gamer-configuration-fixes-pc-gamer-aeroman.jpg","Robe bleu"
                 ,"Cosa My" , "500.000","420.000"));
-        list1.add(new Produits("https://www.tunisianet.com.tn/128358-large/pc-de-bureau-asus-rog-strix-gl12cx-i9-9e-gen-16-go.jpg","robe noir"
+        list11.add(new Produits("https://www.tunisianet.com.tn/128358-large/pc-de-bureau-asus-rog-strix-gl12cx-i9-9e-gen-16-go.jpg","robe noir"
                 ,"lo My" , "400.000","350.000"));
-        list1.add(new Produits("https://www.techadvisor.fr/cmsdata/slideshow/3684835/gaming_meilleur_pc_portable_gamer_thumb800.jpg","roge fleur"
+        list11.add(new Produits("https://www.techadvisor.fr/cmsdata/slideshow/3684835/gaming_meilleur_pc_portable_gamer_thumb800.jpg","roge fleur"
                 ,"apple" , "290.000","250.000"));
-        list1.add(new Produits("https://www.caroll.com/dw/image/v2/BCMJ_PRD/on/demandware.static/-/Sites-caroll-master/default/dw60c33ed1/images/RF04007U-01-robe-femme-clarisse.jpg?sw=522&sh=783&sm=fit&q=80","noir Serie"
+        list11.add(new Produits("https://www.caroll.com/dw/image/v2/BCMJ_PRD/on/demandware.static/-/Sites-caroll-master/default/dw60c33ed1/images/RF04007U-01-robe-femme-clarisse.jpg?sw=522&sh=783&sm=fit&q=80","noir Serie"
                 ,"SONY bb" , "590.000","550.000"));
-        list1.add(new Produits("https://www.maison123.com/dw/image/v2/AAWW_PRD/on/demandware.static/-/Sites-UPAP-master/default/dw185e477e/652451007_x.jpg?sw=1000","jupe coute"
+        list11.add(new Produits("https://www.maison123.com/dw/image/v2/AAWW_PRD/on/demandware.static/-/Sites-UPAP-master/default/dw185e477e/652451007_x.jpg?sw=1000","jupe coute"
                 ,"SON moi" , "590.000","550.000"));
-        list1.add(new Produits("https://media.cyrillus.be/Pictures/cyrillus/77081/robe-longue-brodee-femme.jpg?width=542","jupe jaune "
+        list11.add(new Produits("https://media.cyrillus.be/Pictures/cyrillus/77081/robe-longue-brodee-femme.jpg?width=542","jupe jaune "
                 ,"series x" , "690.000","690.000"));
 
 
+        ImageAdapter imageAdapter = new ImageAdapter(list11);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
-
-
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
     }
-    private void met_gridView2(GridView gridView ){
+    private void met_gridView2(RecyclerView gridView ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://www.artofbrilliance.co.uk/wp-content/uploads/2019/02/happy-tshirt-1.jpg","t shirt"
                 ,"titou My" , "35.000","35.000"));
@@ -153,17 +146,10 @@ public class Fragment_sous_four extends Fragment {
                 ,"series t shirt" , "6900.000","6900.000"));
 
 
+        ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
 
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
     }
 }

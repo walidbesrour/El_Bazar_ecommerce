@@ -447,7 +447,9 @@
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp"
+                    app:backgroundTint="@color/colorBlue"/>
+
                 <Button
                     android:id="@+id/pannier"
                     android:layout_width="match_parent"
@@ -462,7 +464,9 @@
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp"
+                    app:backgroundTint="@color/colorBlue"/>
+                />
 
             </LinearLayout>
 

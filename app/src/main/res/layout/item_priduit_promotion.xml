@@ -95,13 +95,14 @@
             <Button
                 android:id="@+id/btn_achat"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/btn_red"
                 android:text="Acheter"
+                app:backgroundTint="@color/colorRed"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 

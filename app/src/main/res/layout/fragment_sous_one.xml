@@ -86,9 +86,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_below="@+id/Text2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="0dp"
                 android:background="@color/My_background"
                 android:clipToPadding="false"
-                android:layout_marginTop="10dp"
                 android:foregroundGravity="center"
                 android:overScrollMode="never" />
 
@@ -116,7 +118,7 @@
                 android:padding="5dp"
                 android:paddingLeft="5dp" />
 
-            <GridView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/myGrid"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"

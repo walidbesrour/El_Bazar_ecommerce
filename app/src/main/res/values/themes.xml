@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.El_Bazar_Mobile" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.El_Bazar_Mobile" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#00000000</item>
-        <item name="colorPrimaryVariant">#00000000</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">#CAC9C9</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorRed</item>

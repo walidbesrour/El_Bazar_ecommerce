@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -13,6 +13,9 @@
         android:text="Gouvernorat"
         android:textSize="15dp"
         android:textColor="@color/colorBlueDark"/>
+
+
+
     <Spinner
         android:id="@+id/gouvernorat"
         android:layout_width="match_parent"
@@ -49,18 +52,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="30sp" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:id="@+id/name_profile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        >
 
-        <EditText
-            android:id="@+id/Email"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
             android:hint="Avenu"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:drawableLeft="@drawable/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -77,7 +85,9 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        app:backgroundTint="@color/colorBlue"/>
+
 
 
 </LinearLayout>

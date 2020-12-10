@@ -12,6 +12,8 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_sous_three extends Fragment {
-    GridView gridView , gridView2 ;
+    RecyclerView gridView , gridView2 ;
 
     SliderView sliderView;
     private SliderAdapterExample adapter;
@@ -107,37 +109,29 @@ public class Fragment_sous_three extends Fragment {
         }
         adapter.renewItems(sliderItemList);
     }
-    private void met_gridView(GridView gridView ){
-        ArrayList<Produits> list1 = new ArrayList <>();
-        list1.add(new Produits("https://www.cdiscount.com/pdt2/4/7/1/1/700x700/ina6957599321471/rw/lampe-de-chevet-2pcs-lampe-de-table-en-bois-et-tis.jpg","Robe bleu"
+    private void met_gridView(RecyclerView gridView ){
+        ArrayList<Produits> list12 = new ArrayList <>();
+        list12.add(new Produits("https://www.cdiscount.com/pdt2/4/7/1/1/700x700/ina6957599321471/rw/lampe-de-chevet-2pcs-lampe-de-table-en-bois-et-tis.jpg","Robe bleu"
                 ,"Cosa My" , "500.000","420.000"));
-        list1.add(new Produits("https://media3.newlookassets.com/i/newlook/646876301D3/femme/vetements/robes/robe-en-jean-noire-a-col-carre-et-manches-bouffantes.jpg?strip=true&qlt=80&w=720","robe noir"
+        list12.add(new Produits("https://media3.newlookassets.com/i/newlook/646876301D3/femme/vetements/robes/robe-en-jean-noire-a-col-carre-et-manches-bouffantes.jpg?strip=true&qlt=80&w=720","robe noir"
                 ,"lo My" , "400.000","350.000"));
-        list1.add(new Produits("https://ba-sh.com/dw/image/v2/BBTP_PRD/on/demandware.static/-/Sites-master-bash/default/dw1b6d7d74/allImages/H18NEW/1H20AZUR_BRIQUE_1.jpg?sw=870&sh=1389&sm=fit","roge fleur"
+        list12.add(new Produits("https://ba-sh.com/dw/image/v2/BBTP_PRD/on/demandware.static/-/Sites-master-bash/default/dw1b6d7d74/allImages/H18NEW/1H20AZUR_BRIQUE_1.jpg?sw=870&sh=1389&sm=fit","roge fleur"
                 ,"apple" , "290.000","250.000"));
-        list1.add(new Produits("https://www.caroll.com/dw/image/v2/BCMJ_PRD/on/demandware.static/-/Sites-caroll-master/default/dw60c33ed1/images/RF04007U-01-robe-femme-clarisse.jpg?sw=522&sh=783&sm=fit&q=80","noir Serie"
+        list12.add(new Produits("https://www.caroll.com/dw/image/v2/BCMJ_PRD/on/demandware.static/-/Sites-caroll-master/default/dw60c33ed1/images/RF04007U-01-robe-femme-clarisse.jpg?sw=522&sh=783&sm=fit&q=80","noir Serie"
                 ,"SONY bb" , "590.000","550.000"));
-        list1.add(new Produits("https://www.maison123.com/dw/image/v2/AAWW_PRD/on/demandware.static/-/Sites-UPAP-master/default/dw185e477e/652451007_x.jpg?sw=1000","jupe coute"
+        list12.add(new Produits("https://www.maison123.com/dw/image/v2/AAWW_PRD/on/demandware.static/-/Sites-UPAP-master/default/dw185e477e/652451007_x.jpg?sw=1000","jupe coute"
                 ,"SON moi" , "590.000","550.000"));
-        list1.add(new Produits("https://media.cyrillus.be/Pictures/cyrillus/77081/robe-longue-brodee-femme.jpg?width=542","jupe jaune "
+        list12.add(new Produits("https://media.cyrillus.be/Pictures/cyrillus/77081/robe-longue-brodee-femme.jpg?width=542","jupe jaune "
                 ,"series x" , "690.000","690.000"));
 
 
+        ImageAdapter imageAdapter = new ImageAdapter(list12);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
 
-
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
     }
-    private void met_gridView2(GridView gridView ){
+    private void met_gridView2(RecyclerView gridView ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://www.artofbrilliance.co.uk/wp-content/uploads/2019/02/happy-tshirt-1.jpg","t shirt"
                 ,"titou My" , "35.000","35.000"));
@@ -154,17 +148,9 @@ public class Fragment_sous_three extends Fragment {
 
 
 
-
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
+        ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
 
 }

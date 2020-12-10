@@ -12,6 +12,8 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_sous_tow extends Fragment {
-    GridView gridView , gridView2 ,gridView3 ;
+    RecyclerView gridView , gridView2 ,gridView3 ;
 
     SliderView sliderView;
     private SliderAdapterExample adapter;
@@ -106,7 +108,7 @@ public class Fragment_sous_tow extends Fragment {
         }
         adapter.renewItems(sliderItemList);
     }
-    private void met_gridView(GridView gridView ){
+    private void met_gridView(RecyclerView gridView ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://a.1stdibscdn.com/custom-counter-bar-pub-table-with-attached-swing-out-seats-built-to-spec-for-sale/1121189/f_154282121563006102694/15428212_master.jpg?width=768","Robe bleu"
                 ,"Cosa My" , "500.000","420.000"));
@@ -122,21 +124,11 @@ public class Fragment_sous_tow extends Fragment {
                 ,"series x" , "690.000","690.000"));
 
 
-
-
-
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
+        ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
-    private void met_gridView2(GridView gridView ){
+    private void met_gridView2(RecyclerView gridView ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://www.artofbrilliance.co.uk/wp-content/uploads/2019/02/happy-tshirt-1.jpg","t shirt"
                 ,"titou My" , "35.000","35.000"));
@@ -154,18 +146,11 @@ public class Fragment_sous_tow extends Fragment {
 
 
 
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
+        ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
-    private void met_gridView3(GridView gridView ){
+    private void met_gridView3(RecyclerView gridView ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://www.artofbrilliance.co.uk/wp-content/uploads/2019/02/happy-tshirt-1.jpg","t shirt"
                 ,"titou My" , "35.000","35.000"));
@@ -244,16 +229,10 @@ public class Fragment_sous_tow extends Fragment {
 
 
 
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
+        ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView.setAdapter(imageAdapter);
+        gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
 }
 

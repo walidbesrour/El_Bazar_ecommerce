@@ -1,6 +1,8 @@
 package com.example.el_bazar_mobile.sous_categorie;
 
 import android.animation.ArgbEvaluator;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,16 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+
+import com.example.el_bazar_mobile.Produit_Activity;
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.Adapter_Nouveau_Produit;
 import com.example.el_bazar_mobile.adapter.Adapter_Produit_Promotion;
@@ -51,7 +57,7 @@ public class Fragment_sous_one extends Fragment {
     private int delay2 = 3000;
     private Handler handler = new Handler();
     ViewPager viewPager ,viewPager1;
-    GridView gridView  ;
+    RecyclerView gridView  ;
     ViewPager2 viewPager2 ;
     private Handler sliderHandler = new Handler();
 
@@ -79,7 +85,7 @@ public class Fragment_sous_one extends Fragment {
     }
 
 
-    private void met_gridView(GridView gridView ){
+    private void met_gridView(RecyclerView gridView11 ){
         ArrayList<Produits> list1 = new ArrayList <>();
         list1.add(new Produits("https://lh3.googleusercontent.com/proxy/DgYZU2qMb50DNgCxh-Mscj3OpOgGaXOoyG-SkDua9thrKJXXq4IxvZIuXJRg93vvlDr_IXPkvnhltrIp","meuble interieur"
                 ,"Cosa My" , "5000.000","4200"));
@@ -98,19 +104,14 @@ public class Fragment_sous_one extends Fragment {
                 ,"apple" , "2900.000","2500.000"));
         list1.add(new Produits("https://www.samsungshop.tn/15270-thickbox_default/49-ru7300-curved-smart-4k-uhd-tv-samsung-tunisie-prix.jpg"
                 ,"tv UHD samsung", "molotove","3100.000","3000"));
+            ImageAdapter imageAdapter = new ImageAdapter(list1);
+        gridView11.setAdapter(imageAdapter);
+        gridView11.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
 
 
-        gridView.setAdapter(new ImageAdapter(list1, getActivity()));
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                Intent A = new Intent(getActivity(), Produit.class);
-//                startActivity(A);
-            }
-        });
     }
 
     private void pub(SliderView sliderView){

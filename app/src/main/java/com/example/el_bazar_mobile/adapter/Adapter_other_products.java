@@ -27,7 +27,7 @@ public class Adapter_other_products extends RecyclerView.Adapter<Adapter_other_p
     @Override
     public Adapter_other_products.List_other_products onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ItemProduitVenteBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_produit_vente,parent,false);
+            ItemProduitVenteBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_produit_vente,parent,false);
 
 
         return new List_other_products(binding) ;

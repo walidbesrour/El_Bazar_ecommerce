@@ -36,7 +36,9 @@ public class Produit_Activity extends AppCompatActivity {
         binding.ajouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent A = new Intent(Produit_Activity.this, CommandeActivity.class);
+                startActivity(A);
+                finish();
             }
         });
 
