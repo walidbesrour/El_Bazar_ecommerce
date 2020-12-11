@@ -233,13 +233,13 @@ public class Fragment_profile_Adresse extends Fragment {
                                 list_ville.add(label_ville);
                             }
 
-
+                            Log.d("***********  ", String.valueOf(list_ville));
 
 
                         }
 
-                        ArrayAdapter<String> adapter_ville = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, list_ville);
-                        spinner_ville.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, list_ville));
+                        ArrayAdapter<String> adapter_ville = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_ville);
+                        spinner_ville.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_ville));
 
 
 
@@ -299,7 +299,7 @@ public class Fragment_profile_Adresse extends Fragment {
 
                                     }
 
-                                    spinner_localite.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, list_Localites));
+                                    spinner_localite.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_Localites));
 
 
 
@@ -331,6 +331,9 @@ public class Fragment_profile_Adresse extends Fragment {
         }catch (JSONException e){
             e.printStackTrace();
         }
+
+
+
 
         Button ajouter = dialog.findViewById(R.id.ajouter);
         ajouter.setOnClickListener(new View.OnClickListener() {

@@ -190,11 +190,15 @@
                         android:layout_width="130dp"
                         android:layout_height="40dp"
                         android:layout_marginRight="20dp"
+                        android:gravity="center"
                         app:min="0"
                         app:max="10"
                         app:value="-5"
                         app:unit="1"
-                        android:layout_alignParentRight="true" />
+                        app:backgroundTint="@color/white"
+                        android:layout_alignParentRight="true"
+                        />
+
 
 
 
