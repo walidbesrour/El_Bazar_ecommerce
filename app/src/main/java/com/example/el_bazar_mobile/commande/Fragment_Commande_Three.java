@@ -14,6 +14,7 @@ import com.example.el_bazar_mobile.R;
 public class Fragment_Commande_Three extends Fragment {
 
 
+
     public Fragment_Commande_Three() {
         // Required empty public constructor
     }
