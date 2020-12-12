@@ -1,8 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/My_background"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/My_background"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="134dp"
+            android:layout_below="@+id/viewPager"
+            android:src="@drawable/lg"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginLeft="10dp"
+            app:cardElevation="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Autre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image"
+                    android:layout_margin="5dp"
+                    android:background="@color/My_background"
+                    android:paddingLeft="20dp"
+                    android:text="A propos de nous : "
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textSize="12dp"
+                    android:text="Comment ça marche "
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textSize="12dp"
+                    android:text="Vos droits et nos garantis"
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="Avantage de Fidélité "
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    app:backgroundTint="@color/white"
+                    />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#CCCACA"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Evoyer Un Mail "
+            android:layout_margin="20dp"
+            android:drawableLeft="@drawable/ic_baseline_chat_24"
+           />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Appeler en telephone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_call_24"
+            app:backgroundTint="@color/colorBlueDark"
+            />
+
+    </LinearLayout>
+</layout>
+
