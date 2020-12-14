@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
 
-
+    MenuItem menuItem;
 
     Context context ;
 
@@ -75,7 +76,30 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
          super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
+
+
         return true ;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.shop) {
+            Intent intent_panier = new Intent(this , Panier_Activity.class);
+            startActivity(intent_panier);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+
+
     }
 
     public void nav_bar(){

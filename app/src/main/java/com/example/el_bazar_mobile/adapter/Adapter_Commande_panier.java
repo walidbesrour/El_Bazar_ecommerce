@@ -2,6 +2,7 @@ package com.example.el_bazar_mobile.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,14 @@ public class Adapter_Commande_panier extends RecyclerView.Adapter<Adapter_Comman
     ArrayList<Produits> produits;
     Context context ;
 
+     public  onItemClickLister mlistener ;
+    public interface onItemClickLister{ void ItemClick_Remove(int position) ; }
+
+    public void setonItemClickLister_sous( onItemClickLister lister){
+        mlistener = lister;
+    }
+
+
     public Adapter_Commande_panier(ArrayList<Produits> produits, Context context) {
         this.produits = produits;
         this.context = context;
@@ -31,7 +40,7 @@ public class Adapter_Commande_panier extends RecyclerView.Adapter<Adapter_Comman
     public Adapter_Commande_panier.Commande_panier onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemPannierBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_pannier,parent,false);
-        return new Commande_panier(binding);
+        return new Commande_panier(binding,mlistener);
 
     }
 
@@ -56,9 +65,23 @@ public class Adapter_Commande_panier extends RecyclerView.Adapter<Adapter_Comman
 
     public class Commande_panier extends RecyclerView.ViewHolder {
         private ItemPannierBinding binding ;
-        public Commande_panier(@NonNull ItemPannierBinding binding) {
+        public Commande_panier(@NonNull ItemPannierBinding binding , onItemClickLister lister) {
             super(binding.getRoot());
             this.binding = binding ;
+            binding.romoveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(lister!= null)
+                    {
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION)
+                        {
+                            lister.ItemClick_Remove(position);
+                        }
+
+                    }
+                }
+            });
         }
     }
 }

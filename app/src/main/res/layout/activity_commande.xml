@@ -29,7 +29,6 @@
             android:layout_below="@+id/ab"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="0dp"
-
             tools:ignore="UnknownId" />
 
     </RelativeLayout>

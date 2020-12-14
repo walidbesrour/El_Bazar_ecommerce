@@ -94,16 +94,15 @@
                 <Button
                     android:id="@+id/btn_achat"
                     android:layout_width="75dp"
-                    android:layout_height="28dp"
+                    android:layout_height="38dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/btn_red"
+                    android:layout_marginBottom="8dp"
                     android:text="Acheter"
                     app:backgroundTint="@color/colorRed"
                     android:textColor="@color/white"
-                    android:textSize="10dp"
+                    android:textSize="8sp"
                     android:textStyle="bold" />
 
                 <ImageButton

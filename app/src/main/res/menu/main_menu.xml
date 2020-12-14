@@ -12,6 +12,7 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
+       android:id="@+id/shop"
         android:title="menu_produit"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         app:showAsAction="ifRoom" />

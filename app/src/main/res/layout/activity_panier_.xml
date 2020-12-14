@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/My_background">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Panier_Activity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pannier"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cadre_transparant"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+<RelativeLayout
+    android:id="@+id/aze"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/title03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title02"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:text="Total"
+
+
+       />
+
+    <TextView
+        android:id="@+id/title033"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/title03"
+        android:gravity="right"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/title022"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:text="310.000"
+        android:layout_marginLeft="20dp"
+
+
+/>
+</RelativeLayout>
+
+            <Button
+                android:id="@+id/contunier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aze"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/btn_blue"
+                android:layout_margin="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:backgroundTint="@color/colorBlue" />
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</layout>

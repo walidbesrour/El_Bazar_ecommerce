@@ -1,5 +1,6 @@
 package com.example.el_bazar_mobile.sous_categorie;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.el_bazar_mobile.CommandeActivity;
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
 import com.example.el_bazar_mobile.adapter.SliderAdapterExample;
@@ -128,6 +130,13 @@ public class Fragment_sous_four extends Fragment {
         ImageAdapter imageAdapter = new ImageAdapter(list11);
         gridView.setAdapter(imageAdapter);
         gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        imageAdapter.setonItemClickLister_sous(new ImageAdapter.onItemClickLister() {
+            @Override
+            public void ItemClick_produit(int position) {
+                Intent intent = new Intent(getActivity(), CommandeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
     private void met_gridView2(RecyclerView gridView ){
@@ -149,6 +158,13 @@ public class Fragment_sous_four extends Fragment {
         ImageAdapter imageAdapter = new ImageAdapter(list1);
         gridView.setAdapter(imageAdapter);
         gridView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        imageAdapter.setonItemClickLister_sous(new ImageAdapter.onItemClickLister() {
+            @Override
+            public void ItemClick_produit(int position) {
+                Intent intent = new Intent(getActivity(), CommandeActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

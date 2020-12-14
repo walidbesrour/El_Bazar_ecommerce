@@ -30,6 +30,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.products_pro
     Context context;
     LayoutInflater layoutInflater;
 
+    public  onItemClickLister mlistener ;
+    public interface onItemClickLister{ void ItemClick_produit(int position) ; }
+
+    public void setonItemClickLister_sous( onItemClickLister lister){
+        mlistener = lister;
+    }
+
+
     public ImageAdapter(List<Produits> image) {
         this.image = image;
     }
@@ -39,7 +47,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.products_pro
     public ImageAdapter.products_promotion onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemProduitVente0Binding binding = DataBindingUtil.inflate(inflater,R.layout.item_produit_vente0,parent,false);
-        return new products_promotion(binding);
+        return new products_promotion(binding , mlistener);
         /*
                 LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemProduitVenteBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_produit_vente,parent,false);
@@ -59,6 +67,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.products_pro
                 .into(holder.binding.image);
 
 
+
     }
 
     @Override
@@ -68,69 +77,25 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.products_pro
 
     public class products_promotion extends RecyclerView.ViewHolder {
         ItemProduitVente0Binding binding ;
-        public products_promotion(@NonNull  ItemProduitVente0Binding binding) {
+        public products_promotion(@NonNull  ItemProduitVente0Binding binding , onItemClickLister listener) {
             super(binding.getRoot());
             this.binding = binding ;
+            binding.btnAchat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener!= null)
+                    {
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION)
+                        {
+                            listener.ItemClick_produit(position);
+                        }
+
+                    }
+                }
+            });
         }
     }
 }
-/*
-@Override
-    public int getCount() {
-        return image.size();
-    }
 
-    @Override
-    public Produits getItem(int position) {
-        return image.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-            convertView = layoutInflater.inflate(R.layout.item_produit_vente,null);
-
-        Produits produits = getItem(position);
-        String image_item = produits.getImage_produit();
-
-        String nom_produit = produits.getNom_produit();
-        String nom_marque = produits.getMarque_produit();
-        String prix = produits.getPrix_produit();
-        String Prix_bare = produits.getPrix_bare_produit();
-
-
-
-        ImageView imageView = convertView.findViewById(R.id.image);
-        Picasso.get()
-                .load(image_item)
-                .into(imageView);
-
-        Button button = convertView.findViewById(R.id.btn_achat);
-
-
-
-        TextView title_produit = convertView.findViewById(R.id.nom_p);
-        title_produit.setText(nom_produit);
-
-        TextView title_marque = convertView.findViewById(R.id.nom_marque);
-        title_marque.setText(nom_marque);
-
-        TextView title_prix = convertView.findViewById(R.id.nom_prix1);
-        title_prix.setText(prix);
-        TextView title_prix_bare = convertView.findViewById(R.id.nom_prix);
-        title_prix_bare.setText(Prix_bare);
-
-
-
-
-        return convertView;
-
-    }
-}
- */
 

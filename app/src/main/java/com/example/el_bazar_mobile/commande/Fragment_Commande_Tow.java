@@ -25,6 +25,7 @@ public class Fragment_Commande_Tow extends Fragment {
 
 
     private FragmentCommandeTowBinding binding ;
+    ArrayList<Produits> list1 ;
     public Fragment_Commande_Tow() {
         // Required empty public constructor
     }
@@ -50,6 +51,13 @@ public class Fragment_Commande_Tow extends Fragment {
         Adapter_Commande_panier adapter_commande_panier = new Adapter_Commande_panier(remplirList(),getActivity());
         binding.recycleId.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
         binding.recycleId.setAdapter(adapter_commande_panier);
+        adapter_commande_panier.setonItemClickLister_sous(new Adapter_Commande_panier.onItemClickLister() {
+            @Override
+            public void ItemClick_Remove(int position) {
+                list1.remove(position);
+                adapter_commande_panier.notifyItemRemoved(position);
+            }
+        });
 
 
 
@@ -68,7 +76,7 @@ public class Fragment_Commande_Tow extends Fragment {
 
     public ArrayList<Produits> remplirList(){
 
-        ArrayList<Produits> list1 = new ArrayList <>();
+       list1 = new ArrayList <>();
         list1.add(new Produits("https://i.pinimg.com/236x/75/ab/d2/75abd28624939282a296094ff77830ae.jpg","souris gamer"
                 ,"Gamer ROG" , "5000.000",10));
         list1.add(new Produits("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR__5v5R66BFREzVt7-4u9FkS9zC_FDl4G30Q&usqp=CAU","meuble interieur"

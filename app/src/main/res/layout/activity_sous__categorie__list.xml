@@ -22,37 +22,15 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/fragment_container2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/chipNavigation"
             android:layout_below="@+id/ab"
-            android:orientation="horizontal">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        />
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_marginRight="5dp"
-        android:background="@color/black"/>
-
-</LinearLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                android:layout_marginLeft="2dp"/>
-        </LinearLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            tools:ignore="UnknownId" />
 
     </RelativeLayout>
 </layout>

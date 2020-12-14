@@ -25,6 +25,7 @@ import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 
+import com.example.el_bazar_mobile.CommandeActivity;
 import com.example.el_bazar_mobile.Produit_Activity;
 import com.example.el_bazar_mobile.R;
 import com.example.el_bazar_mobile.adapter.Adapter_Nouveau_Produit;
@@ -87,7 +88,7 @@ public class Fragment_sous_one extends Fragment {
 
     private void met_gridView(RecyclerView gridView11 ){
         ArrayList<Produits> list1 = new ArrayList <>();
-        list1.add(new Produits("https://lh3.googleusercontent.com/proxy/DgYZU2qMb50DNgCxh-Mscj3OpOgGaXOoyG-SkDua9thrKJXXq4IxvZIuXJRg93vvlDr_IXPkvnhltrIp","meuble interieur"
+        list1.add(new Produits("https://cdn.pocket-lint.com/r/s/1200x/assets/images/140007-games-review-nintendo-switch-review-image1-lp6zy9awm0.jpg","meuble interieur"
                 ,"Cosa My" , "5000.000","4200"));
         list1.add(new Produits("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR__5v5R66BFREzVt7-4u9FkS9zC_FDl4G30Q&usqp=CAU","meuble interieur"
                 ,"Cosa My" , "4000.000","3500.000"));
@@ -107,6 +108,13 @@ public class Fragment_sous_one extends Fragment {
             ImageAdapter imageAdapter = new ImageAdapter(list1);
         gridView11.setAdapter(imageAdapter);
         gridView11.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        imageAdapter.setonItemClickLister_sous(new ImageAdapter.onItemClickLister() {
+            @Override
+            public void ItemClick_produit(int position) {
+                Intent intent = new Intent(getActivity(), CommandeActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
