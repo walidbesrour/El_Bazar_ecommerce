@@ -6,9 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragment = null;
 
     MenuItem menuItem;
-
+        int x = 0 ;
     Context context ;
 
     @Override
@@ -120,7 +122,21 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new Fragment_notification();
                         break;
                     case R.id.profile:
-                       fragment = new Fragment_Profile();
+                        if(x != 0 )
+                        {
+                        System.out.println("test");
+                        fragment = new Fragment_Profile();
+                    }
+                        else
+                        {
+                            System.out.println("nnnnn");
+                            Dialog dialog = new Dialog(context);
+                            dialog.setContentView(R.layout.identification);
+                            dialog.show();
+
+
+                        }
+
                         break;
                     case R.id.reglage:
                         fragment = new Fragment_reglage();

@@ -33,16 +33,28 @@ import com.example.el_bazar_mobile.adapter.Adapter_Produit_Promotion;
 import com.example.el_bazar_mobile.adapter.ImageAdapter;
 import com.example.el_bazar_mobile.adapter.SliderAdapterExample;
 import com.example.el_bazar_mobile.adapter.Slider_Adapter_Promo;
+import com.example.el_bazar_mobile.api_back.ApiInterface;
+import com.example.el_bazar_mobile.api_back.Url;
+import com.example.el_bazar_mobile.api_back.retrofit;
 import com.example.el_bazar_mobile.model.Nouveau_Produit;
 import com.example.el_bazar_mobile.model.Produits;
 import com.example.el_bazar_mobile.model.SliderItem;
+import com.example.el_bazar_mobile.model.SlidesDTO;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+import static android.util.Log.d;
 
 public class Fragment_sous_one extends Fragment {
 
@@ -61,7 +73,7 @@ public class Fragment_sous_one extends Fragment {
     RecyclerView gridView  ;
     ViewPager2 viewPager2 ;
     private Handler sliderHandler = new Handler();
-
+    String url = Url.MonURL() ;
 
 
     @Nullable
@@ -146,36 +158,101 @@ public class Fragment_sous_one extends Fragment {
             }
         });
 
-        List<SliderItem> sliderItemList = new ArrayList<>();
-        //dummy data
-        for (int i = 0; i < 5; i++) {
-            SliderItem sliderItem = new SliderItem();
-            sliderItem.setDescription("Slider Item " + i);
-            switch (i){
-                case 0 :
-                    sliderItem.setImageUrl("https://www.usinenouvelle.com/mediatheque/4/4/2/000843244_image_896x598/samsung-galaxy-s20.jpg");
-                    break;
-                case 1 :
-                    sliderItem.setImageUrl("https://i1.wp.com/www.leconomistemaghrebin.com/wp-content/uploads/2019/03/image_news_get.jpg?fit=1200%2C444&ssl=1");
-                    break;
-                case 2 :
-                    sliderItem.setImageUrl("https://i2.wp.com/tunivisions.net/wp-content/uploads/2019/08/Fruits-Rouges.jpg?resize=767%2C1024&ssl=1");
-                    break;
-                case 3 :
-                    sliderItem.setImageUrl("https://thd.tn/wp-content/uploads/2020/03/image001.jpg");
-                    break;
-                case 4 :
-                    sliderItem.setImageUrl("https://www.coca-cola-france.fr/content/dam/one/fr/fr/lead/le-logo-coca-cola-huit-lettres-un-trait-dunion.jpg");
-                    break;
 
-            }
-            /*if (i % 2 == 0) {
+        Retrofit retrofid = retrofit.getInstance();
+        ApiInterface apiInterface = retrofid.create(ApiInterface.class);
+        Call<List<SlidesDTO>> call = apiInterface.GetSlide();
+        call.enqueue(new Callback<List<SlidesDTO>>() {
+            @Override
+            public void onResponse(Call<List<SlidesDTO>> call, Response<List<SlidesDTO>> response) {
+
+                System.out.println("///////////////////////////////////////////");
+
+                System.out.println(response.body().get(0).getImageUrl_DTO());
+                System.out.println(response.body().get(1).getImageUrl_DTO());
+                System.out.println(response.body().get(2).getImageUrl_DTO());
+                System.out.println(response.body().get(3).getImageUrl_DTO());
+                System.out.println(response.body().get(4).getImageUrl_DTO());
+
+
+
+                List<SliderItem> sliderItemList = new ArrayList<>();
+                //dummy data
+                for (int i = 0; i < 5; i++) {
+                    SliderItem sliderItem = new SliderItem();
+                    sliderItem.setDescription("Slider Item " + i);
+                    switch (i){
+                        case 0 :
+                            sliderItem.setImageUrl(url+"/image/"+response.body().get(0).getImageUrl_DTO());
+                            break;
+                        case 1 :
+                            sliderItem.setImageUrl(url+"/image/"+response.body().get(1).getImageUrl_DTO());
+                            break;
+                        case 2 :
+                            sliderItem.setImageUrl(url+"/image/"+response.body().get(2).getImageUrl_DTO());
+                            break;
+                        case 3 :
+                            sliderItem.setImageUrl(url+"/image/"+response.body().get(3).getImageUrl_DTO());
+                            break;
+                        case 4 :
+                            sliderItem.setImageUrl(url+"/image/"+response.body().get(4).getImageUrl_DTO());
+                            break;
+
+                    }
+            /*
+            if (i % 2 == 0) {
                 sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
             } else {
                 sliderItem.setImageUrl("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-            }*/
-            sliderItemList.add(sliderItem);
-        }
+            }
+            */
+                    sliderItemList.add(sliderItem);
+                }
+
+
+                adapter.renewItems(sliderItemList);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<SlidesDTO>> call, Throwable t) {
+                d("***", "*********MyFriendVM***************" +call.toString());
+                d("***", "*********MyFriendVM***************" +t.toString());
+
+            }
+        });
+
+
+        List<SliderItem> sliderItemList = new ArrayList<>();
+        //dummy data
+//        for (int i = 0; i < 5; i++) {
+//            SliderItem sliderItem = new SliderItem();
+//            sliderItem.setDescription("Slider Item " + i);
+//            switch (i){
+//                case 0 :
+//                    sliderItem.setImageUrl("https://www.usinenouvelle.com/mediatheque/4/4/2/000843244_image_896x598/samsung-galaxy-s20.jpg");
+//                    break;
+//                case 1 :
+//                    sliderItem.setImageUrl("https://i1.wp.com/www.leconomistemaghrebin.com/wp-content/uploads/2019/03/image_news_get.jpg?fit=1200%2C444&ssl=1");
+//                    break;
+//                case 2 :
+//                    sliderItem.setImageUrl("https://i2.wp.com/tunivisions.net/wp-content/uploads/2019/08/Fruits-Rouges.jpg?resize=767%2C1024&ssl=1");
+//                    break;
+//                case 3 :
+//                    sliderItem.setImageUrl("https://thd.tn/wp-content/uploads/2020/03/image001.jpg");
+//                    break;
+//                case 4 :
+//                    sliderItem.setImageUrl("https://www.coca-cola-france.fr/content/dam/one/fr/fr/lead/le-logo-coca-cola-huit-lettres-un-trait-dunion.jpg");
+//                    break;
+//
+//            }
+//            /*if (i % 2 == 0) {
+//                sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+//            } else {
+//                sliderItem.setImageUrl("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+//            }*/
+//            sliderItemList.add(sliderItem);
+//        }
         adapter.renewItems(sliderItemList);
     }
 
