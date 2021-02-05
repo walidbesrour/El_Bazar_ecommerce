@@ -11,6 +11,7 @@ import retrofit2.Call;
 
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 
@@ -24,40 +25,11 @@ public interface ApiInterface {
     Call<List<ProduitDTO>> GetPromo ();
 
     @POST("/api/authenticate")
-    Call<List<ProduitDTO>> authenticate (@Body HashMap<Object, Object> map);
+    Call<ProduitDTO> authenticate (@Body ProduitDTO produitDTO);
 
-    /*
-     @POST("contacts")
-    public  Call<user> SetUser(@Body HashMap<Object, Object> map);
-
-        public void SetRetrofit (String A ,String B ,String C)
-    {
-        Retrofit retrofi = retrofit.getInstance();
+    @GET("/api/account")
+    Call<ProduitDTO> Getaccount (@Header("Authorization") String autoToken);
 
 
-        ApiInterface apiInterface = retrofi.create(ApiInterface.class);
-
-        HashMap<Object, Object> map = new HashMap<>();
-        map.put("username", A);
-        map.put("email", B);
-        map.put("password",C);
-
-        Call<user> call = apiInterface.SetUser(map);
-
-        call.enqueue(new Callback<user>() {
-            @Override
-            public void onResponse(Call<user> call, Response<user> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<user> call, Throwable t) {
-
-            }
-        });
-
-
-    }
-     */
 }
 

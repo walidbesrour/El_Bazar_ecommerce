@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-
+/*
         Retrofit retrofid = retrofit.getInstance();
         ApiInterface apiInterface = retrofid.create(ApiInterface.class);
         Call<List<ProduitDTO>> call = apiInterface.GetPromo();
@@ -52,7 +52,7 @@ public class SplashScreen extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
         new Handler().postDelayed(new Runnable() {

@@ -14,21 +14,36 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.el_bazar_mobile.api_back.ApiInterface;
+import com.example.el_bazar_mobile.api_back.retrofit;
+import com.example.el_bazar_mobile.model.ProduitDTO;
 import com.example.el_bazar_mobile.ui.Fragment_Home;
 
 import com.example.el_bazar_mobile.ui.Fragment_Profile;
 import com.example.el_bazar_mobile.ui.Fragment_notification;
 import com.example.el_bazar_mobile.ui.Fragment_reglage;
+import com.google.android.material.textfield.TextInputEditText;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     private ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
 
     MenuItem menuItem;
-        int x = 0 ;
+        int x = 0 , y =0 ;
+
+       String auto_tocken ;
     Context context ;
 
     @Override
@@ -133,6 +148,76 @@ public class MainActivity extends AppCompatActivity {
                             Dialog dialog = new Dialog(context);
                             dialog.setContentView(R.layout.identification);
                             dialog.show();
+
+
+                            Button login2 = dialog.findViewById(R.id.walid);
+                            TextInputEditText name = dialog.findViewById(R.id.name_profile1);
+                            TextInputEditText password = dialog.findViewById(R.id.email_profile1);
+
+                            login2.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    String A = name.getText().toString() ;
+                                    String B = password.getText().toString() ;
+
+                                    Retrofit retrofi = retrofit.getInstance();
+
+
+                                    ApiInterface apiInterface = retrofi.create(ApiInterface.class);
+
+                                    ProduitDTO produitDTO = new ProduitDTO(A,B);
+
+                                    Call<ProduitDTO> call = apiInterface.authenticate(produitDTO);
+                                    call.enqueue(new Callback<ProduitDTO>() {
+                                        @Override
+                                        public void onResponse(Call<ProduitDTO> call, Response<ProduitDTO> response) {
+                                            System.out.println("******************ok*****************");
+                                            System.out.println(response.body().getId_token());
+                                            auto_tocken = response.body().getId_token() ;
+
+
+                                            Retrofit retrofi = retrofit.getInstance();
+
+                                            ApiInterface apiInterface = retrofi.create(ApiInterface.class);
+
+
+                                            Call<ProduitDTO> call1 = apiInterface.Getaccount(auto_tocken);
+
+                                            call1.enqueue(new Callback<ProduitDTO>() {
+                                                @Override
+                                                public void onResponse(Call<ProduitDTO> call, Response<ProduitDTO> response) {
+                                                    System.out.println("************ the tocken is good ***********");
+                                                    dialog.dismiss();
+                                                    y = 1 ;
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<ProduitDTO> call, Throwable t) {
+                                                    System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnneeeeeeeeeeeeeeeeeeeee***********");
+                                                }
+                                            });
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<ProduitDTO> call, Throwable t) {
+                                            System.out.println("no my lover " );
+                                            System.out.println(t);
+                                            System.out.println(call);
+                                        }
+                                    });
+                                }
+                            });
+
+
+            ////////////////////////////////////////////////////////////////
+                            if (y == 1 ){
+                                fragment = new Fragment_Profile();
+                            }
+
+
+
 
 
                         }
